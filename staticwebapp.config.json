@@ -1,4 +1,14 @@
 {
+    "routes": [
+        {
+            "route": "/login",
+            "redirect": "/.auth/login/auth0"
+        },
+        {
+            "route": "/logout",
+            "redirect": "/.auth/logout/auth0"
+        }
+    ],
     "auth": {
 	"identityProviders": {
 	    "customOpenIdConnectProviders": {
