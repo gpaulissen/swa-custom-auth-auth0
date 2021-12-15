@@ -6,28 +6,33 @@
         },
         {
             "route": "/logout",
-            "redirect": "/.auth/logout/auth0"
+            "redirect": "/.auth/logout"
+        },
+        {
+            "route": "/*",
+            "redirect": "/login",
+            "allowedRoles": ["anonymous"]
         }
     ],
     "auth": {
-	"identityProviders": {
-	    "customOpenIdConnectProviders": {
-		"auth0": {
+        "identityProviders": {
+            "customOpenIdConnectProviders": {
+                "auth0": {
                     "registration": {
-			"clientIdSettingName": "KEYCLOAK_CLIENT_ID",
-			"clientCredential": {
+                        "clientIdSettingName": "KEYCLOAK_CLIENT_ID",
+                        "clientCredential": {
                             "clientSecretSettingName": "KEYCLOAK_CLIENT_SECRET"
-			},
-			"openIdConnectConfiguration": {
+                        },
+                        "openIdConnectConfiguration": {
                             "wellKnownOpenIdConfiguration": "https://auth.services.t-hive.io/auth/realms/Portal/.well-known/openid-configuration"
-			}
+                        }
                     },
                     "login": {
-			"nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
-			"scopes": ["openid", "profile", "roles"],
+                        "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+                        "scopes": ["openid", "profile", "roles"],
                     }
-		}
+                }
             }
-	}
+        }
     }
 }
